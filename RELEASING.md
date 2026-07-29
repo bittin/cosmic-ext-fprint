@@ -65,9 +65,6 @@ silently skips another:
   and uploads `vendor.tar` to the release. Enabler for `copr` and
   `launchpad`, which build offline because libcosmic is a git dep. Needs
   `create-release`.
-- **aur** — stamps the rendered PKGBUILD (`packaging/aur/PKGBUILD`) with the
-  version + source-tarball sha256, regenerates `.SRCINFO`, and pushes to the
-  AUR package over SSH. Needs `create-release`.
 - **copr** — builds an SRPM from the spec (`packaging/copr/*.spec`) using the
   tag source + `vendor.tar`, submits it to Copr via `copr-cli`. Needs
   `vendor-tar`.
@@ -75,7 +72,7 @@ silently skips another:
   vendored deps inside the orig tarball, signs with GPG, and `dput`s to the
   PPA. Needs `vendor-tar`.
 
-The AUR/Copr/Launchpad targets are documented in
+The Copr/Launchpad targets are documented in
 [`packaging/README.md`](packaging/README.md).
 
 ## Required repository configuration
@@ -100,7 +97,7 @@ Create it at *Settings → Developer settings → Personal access tokens → Tok
 secret **`GH_PAT`**. If the Flathub job fails with `403 ... denied to
 flathub`, the PAT is missing the `repo` scope.
 
-### Native packaging secrets (AUR / Copr / Launchpad)
+### Native packaging secrets (Copr / Launchpad)
 
 These power the four native-distro jobs added with the packaging in
 `packaging/`. Create each as a repository secret under *Settings → Secrets
@@ -109,7 +106,6 @@ you can roll them out one distro at a time.
 
 | Secret | Job | What it holds |
 |---|---|---|
-| `AUR_SSH_KEY` | `aur` | Private SSH key whose public half is registered on your AUR account (*My Account → SSH Public Keys*). Used to clone+push `aur@aur.archlinux.org`. |
 | `COPR_API_TOKEN` | `copr` | The full `~/.config/copr` INI from Copr → *My Account → API* (holds `login`, `token`, `username`, `copr_url`). Paste as one multiline secret. |
 | `LP_GPG_KEY` | `launchpad` | ASCII-armored private key registered to the Launchpad account that owns the PPA (*Your profile → OpenPGP keys*). Signs the `.changes`. |
 | `LP_GPG_PASSPHRASE` | `launchpad` | Passphrase for `LP_GPG_KEY`. |
