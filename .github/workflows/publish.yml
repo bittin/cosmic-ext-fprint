@@ -147,6 +147,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
+      - uses: extra-actions/setup-just@v2
       - name: Produce vendor.tar (reproducible VERGEN)
         env:
           # Pin VERGEN to the release commit so the binary reports the tag,
