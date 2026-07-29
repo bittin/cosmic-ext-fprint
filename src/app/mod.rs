@@ -8,7 +8,11 @@ use cosmic::{
 };
 
 use crate::{
-    app::{finger::Finger, message::{DeviceOption, Message}, users::UserOption},
+    app::{
+        finger::Finger,
+        message::{DeviceOption, Message},
+        users::UserOption,
+    },
     config::Config,
     fprint_dbus::DeviceProxy,
 };
