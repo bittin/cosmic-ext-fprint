@@ -150,7 +150,7 @@ mod tests {
     fn test_non_method_error() {
         // Test a different zbus::Error variant
         let zbus_err =
-            zbus::Error::from(std::io::Error::new(std::io::ErrorKind::Other, "test error"));
+            zbus::Error::from(std::io::Error::other("test error"));
         let app_err = AppError::from(zbus_err);
 
         if let AppError::Unknown(msg) = app_err {
