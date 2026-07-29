@@ -118,6 +118,18 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.2.2" date="2026-07-29">
+      <description>
+        <p>
+          Changes:
+        </p>
+        <ul>
+          <li>Ctrl + Q quits application</li>
+          <li>Improved Help theming and added open-fprintd link</li>
+          <li>Updated application dependencies</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.1" date="2026-07-15">
       <description>
         <p>
