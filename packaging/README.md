@@ -2,7 +2,7 @@
 
 Distribution packaging for Enroll, alongside the existing Flathub build and
 AppImage. Each target builds from a `vX.Y.Z` tag, exactly like the Flathub
-release flow described in [`../RELEASING.md`](../RELEASING.md).
+release flow described in [`RELEASING.md`](RELEASING.md).
 
 | Target | Layout | Build model | Distros |
 |---|---|---|---|
@@ -85,5 +85,5 @@ package *targets* on each service is a one-time manual step:
   enable the Fedora 42+ chroots you want.
 - **Launchpad** — create the PPA and register your GPG key.
 
-See [`../RELEASING.md`](../RELEASING.md) for how a release triggers all of
+See [`RELEASING.md`](RELEASING.md) for how a release triggers all of
 this.
