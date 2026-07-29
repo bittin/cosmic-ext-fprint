@@ -71,7 +71,7 @@ jobs:
           ln -s usr/bin/cosmic-utils-enroll AppDir/AppRun
 
           wget -O appimagetool \
-            https://github.com/AppImage/AppImageKit/releases/download/13/appimagetool-x86_64.AppImage
+            https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
           chmod +x appimagetool
           export APPIMAGE_EXTRACT_AND_RUN=1
           ARCH=x86_64 ./appimagetool AppDir cosmic-utils-enroll-x86_64.AppImage
