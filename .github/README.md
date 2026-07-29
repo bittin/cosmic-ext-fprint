@@ -1,14 +1,13 @@
 [![Flathub Installs](https://img.shields.io/flathub/downloads/org.cosmic_utils.enroll?logo=flathub)](https://flathub.org/apps/org.cosmic_utils.enroll)
 [![Flathub Version](https://img.shields.io/flathub/v/org.cosmic_utils.enroll?logo=flathub)](https://flathub.org/apps/org.cosmic_utils.enroll)
-![AUR Version](https://img.shields.io/aur/version/enroll)
+[![AUR Version](https://img.shields.io/aur/version/enroll)](https://aur.archlinux.org/packages/enroll)
 # Enroll
 
 GUI application for fingerprint management. Designed for COSMIC DE.
 
-
 ## Prerequisites
 
-You're using Linux or freedesktop compatible system with a supported fingerprint scanner. You also need [fprintd][fprintd] or [open-fprintd][open-fprintd] running.
+You're using Linux or freedesktop compatible system with a supported fingerprint scanner. You also need [fprintd][fprintd] or [open-fprintd][open-fprintd] installed.
 
 Tested with: 
 | Distribution | Desktop | Architecture | Fingerprint scanner |
@@ -28,6 +27,10 @@ If you don't have correct rights or incorrect password your attempt is just dism
 
 ### Flathub
 <a href='https://flathub.org/apps/org.github.cosmic_utils.enroll'><img width='240' alt='Get it on Flathub' src='https://flathub.org/api/badge?svg&locale=en'/></a>
+### AUR
+You can just [go get it][aur] but I recommend installing using [Shelly][shelly] for instance.
 
+[shelly]: https://www.seafoam-labs.org/shelly-alpm
+[aur]: https://aur.archlinux.org/packages/enroll
 [fprintd]: https://fprint.freedesktop.org/
 [open-fprintd]: https://github.com/uunicorn/open-fprintd
