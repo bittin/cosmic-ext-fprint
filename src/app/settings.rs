@@ -63,7 +63,7 @@ impl AppModel {
                 ),
             );
 
-        let device_count = self.devices.iter().count();
+        let device_count = self.devices.len();
 
         let mut device_section = section().title(fl!("settings-device", nbr = device_count));
 

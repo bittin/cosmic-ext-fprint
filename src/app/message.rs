@@ -536,13 +536,12 @@ impl AppModel {
             return Task::none();
         }
 
-        if let Some(device) = self.devices.get(index) {
-            if let Some(conn) = &self.connection {
+        if let Some(device) = self.devices.get(index)
+            && let Some(conn) = &self.connection {
                 self.status = fl!("status-searching-device");
                 self.busy = true;
                 return task_select_device(conn.clone(), device.path.clone());
             }
-        }
         Task::none()
     }
 

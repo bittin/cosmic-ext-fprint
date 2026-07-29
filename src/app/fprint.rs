@@ -28,7 +28,7 @@ pub async fn find_all_devices(
     connection: &zbus::Connection,
 ) -> zbus::Result<Vec<zbus::zvariant::OwnedObjectPath>> {
     let manager = ManagerProxy::new(connection).await?;
-    Ok(manager.get_devices().await?)
+    manager.get_devices().await
 }
 
 /// fprintd DBus API function for requesting users registered prints
@@ -298,15 +298,15 @@ where
     S: Sink<Message> + Unpin + Send,
     S::Error: std::fmt::Debug + Send,
 {
-    validate_username(&username)?;
+    validate_username(username)?;
     let device = DeviceProxy::builder(&connection)
         .path(path)?
         .build()
         .await?;
 
-    device.claim(&username).await?;
+    device.claim(username).await?;
 
-    if let Err(e) = device.verify_start(&finger).await {
+    if let Err(e) = device.verify_start(finger).await {
         let _ = device.release().await;
         return Err(e);
     }

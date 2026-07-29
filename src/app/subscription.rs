@@ -107,7 +107,7 @@ pub(crate) fn verify_subscription(data: VerifyData) -> Subscription<Message> {
             match verify_finger_process(
                 data.connection,
                 &data.device_path,
-                &data.finger.as_finger_id().unwrap_or_default(),
+                data.finger.as_finger_id().unwrap_or_default(),
                 &data.username,
                 &mut output,
             )
