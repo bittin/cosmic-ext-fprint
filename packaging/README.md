@@ -6,7 +6,6 @@ release flow described in [`../RELEASING.md`](../RELEASING.md).
 
 | Target | Layout | Build model | Distros |
 |---|---|---|---|
-| AUR | `aur/PKGBUILD` | online `cargo fetch --locked` | Arch |
 | Copr | `copr/cosmic-utils-enroll.spec` | **vendored** | Fedora 42+ |
 | Launchpad | `debian/*` | **vendored** | Ubuntu 25.04+ |
 
@@ -53,7 +52,6 @@ a failure in one never suppresses another.
 | Job | Produces | Needs |
 |---|---|---|
 | `vendor-tar` | `vendor.tar` uploaded to the GitHub release | `create-release` |
-| `aur` | pushes the updated PKGBUILD + `.SRCINFO` to AUR | `create-release` |
 | `copr` | builds an SRPM, submits via `copr-cli` | `vendor-tar` |
 | `launchpad` | builds a source package, `dput`s to the PPA | `vendor-tar` |
 
@@ -69,7 +67,6 @@ already needs `GH_PAT`; the others are new with this packaging.
 
 | Secret | Used by | How to create |
 |---|---|---|
-| `AUR_SSH_KEY` | `aur` | A private SSH key whose public half is added to your AUR account under *My Account → SSH Public Keys*. Used to clone+push the AUR package over `aur@aur.archlinux.org`. |
 | `COPR_API_TOKEN` | `copr` | Copr → *My Account → API* — paste the whole `~/.config/copr` INI (it holds `login`, `token`, `username`, `copr_url`). Stored as a single multiline secret. |
 | `LP_GPG_KEY` | `launchpad` | The **ASCII-armored private key** you've uploaded to Launchpad under *Your profile → OpenPGP keys*. Used to sign the `.changes` file. |
 | `LP_GPG_PASSPHRASE` | `launchpad` | The passphrase for `LP_GPG_KEY`. |
@@ -84,9 +81,6 @@ already needs `GH_PAT`; the others are new with this packaging.
 This repo only contains the packaging files and the CI. Creating the actual
 package *targets* on each service is a one-time manual step:
 
-- **AUR** — create the empty package `cosmic-utils/enroll` (or
-  `cosmic-utils-enroll` — name must match `pkgname` in the PKGBUILD) via the
-  AUR *Submit Package* form. The first `aur` job run will populate it.
 - **Copr** — create a project named `enroll` (or whatever you configure),
   enable the Fedora 42+ chroots you want.
 - **Launchpad** — create the PPA and register your GPG key.
