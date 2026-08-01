@@ -3,7 +3,10 @@
 use crate::app::AppModel;
 use crate::app::error::AppError;
 use crate::app::tasks::*;
-use crate::app::{ContextPage, Finger};
+use crate::app::{
+    ContextPage, Finger,
+    users::{UserOption, build_nav},
+};
 use crate::config::{AppTheme, Config};
 use crate::fl;
 use crate::fprint_dbus::DeviceProxy;
@@ -46,7 +49,7 @@ pub enum Message {
     ClearComplete(Result<(), AppError>),
     CloseApplication,
     EnrolledFingers(Vec<String>),
-    FingerSelected(String),
+    FingerSelected(Finger),
     VerifyFinger,
     VerifyStatus(String, bool),
     VerifyStop,
@@ -54,6 +57,7 @@ pub enum Message {
     ThemeSetting(AppTheme),
     SelectFingerByNumber(u8),
     SelectDevice(usize),
+    UsersLoaded(Vec<UserOption>),
 }
 
 // Section for handling of Messages
@@ -110,11 +114,11 @@ impl AppModel {
         self.connection = Some(conn.clone());
         self.status = fl!("status-searching-device");
 
-        let conn_clone = conn.clone();
-        let clone_conn = conn.clone();
+        let find_conn = conn.clone();
+        let devices_conn = conn.clone();
         Task::batch(vec![
-            task_find_device(conn_clone),
-            get_devices_task(clone_conn),
+            task_find_device(find_conn),
+            get_devices_task(devices_conn),
         ])
     }
 
@@ -140,10 +144,11 @@ impl AppModel {
     ///
     /// **Returns** ***Task***()
     pub(crate) fn on_error(&mut self, err: AppError) -> Task<cosmic::Action<Message>> {
-        self.status = err.localized_message();
-        if self.status == fl!("error-no-enrolled-prints") {
+        if err == AppError::NoEnrolledPrints {
             self.enrolled_fingers.clear();
             self.status = fl!("success");
+        } else {
+            self.status = err.localized_message();
         }
         self.busy = false;
         self.enrolling_finger = None;
@@ -165,17 +170,12 @@ impl AppModel {
     /// the selected one
     ///
     /// **Returns** ***Task***()
-    pub(crate) fn on_finger_selected(&mut self, finger: String) -> Task<cosmic::Action<Message>> {
+    pub(crate) fn on_finger_selected(&mut self, finger: Finger) -> Task<cosmic::Action<Message>> {
         if self.busy {
             return Task::none();
         }
         self.confirm_clear = false;
-        for fingers in Finger::all() {
-            if fingers.localized_name() == finger {
-                self.selected_finger = *fingers;
-                break;
-            }
-        }
+        self.selected_finger = finger;
         Task::none()
     }
 
@@ -221,10 +221,13 @@ impl AppModel {
     ///
     /// **Returns** ***Task***()
     pub(crate) fn on_verify_finger(&mut self) -> Task<cosmic::Action<Message>> {
+        if self.busy {
+            return Task::none();
+        }
         if self
-            .selected_finger
-            .as_finger_id()
-            .is_some_and(|id| self.enrolled_fingers.iter().any(|ef| ef == id))
+            .enrolled_fingers
+            .iter()
+            .any(|ef| ef == self.selected_finger.as_finger_id())
         {
             self.busy = true;
             self.verifying_finger = true;
@@ -321,8 +324,8 @@ impl AppModel {
             self.enrolling_finger = None;
 
             if status == "enroll-completed" {
-                let _ = self.on_cycle_finger(1);
-                return self.list_fingers_task();
+                let cycle = self.on_cycle_finger(1);
+                return Task::batch(vec![cycle, self.list_fingers_task()]);
             }
         }
         Task::none()
@@ -346,6 +349,10 @@ impl AppModel {
     ///
     /// **Returns** either ***Task***() or ***task_clear_device***()
     pub(crate) fn on_clear_device(&mut self) -> Task<cosmic::Action<Message>> {
+        if self.busy {
+            return Task::none();
+        }
+
         if !self.confirm_clear {
             self.confirm_clear = true;
             return Task::none();
@@ -361,10 +368,14 @@ impl AppModel {
         Task::none()
     }
 
-    /// Deletes chosen print or users all prints depending on choices from the user
+    /// Deletes the selected finger's print for the current user.
     ///
-    /// **Returns** either ***Task***(), ***task_delete_print***() or ***task_delete_prints***()
+    /// **Returns** either ***Task***() or ***task_delete_print***()
     pub(crate) fn on_delete(&mut self) -> Task<cosmic::Action<Message>> {
+        if self.busy {
+            return Task::none();
+        }
+
         if let (Some(path), Some(conn), Some(user)) = (
             self.device_path.clone(),
             self.connection.clone(),
@@ -375,12 +386,8 @@ impl AppModel {
             let path = (*path).clone();
             let username = (*user.username).clone();
 
-            if let Some(finger_name) = self.selected_finger.as_finger_id() {
-                let finger_name = finger_name.to_string();
-                return task_delete_print(path, username, finger_name, conn);
-            } else {
-                return task_delete_prints(path, username, conn);
-            }
+            let finger_name = self.selected_finger.as_finger_id().to_string();
+            return task_delete_print(path, username, finger_name, conn);
         }
         Task::none()
     }
@@ -396,7 +403,7 @@ impl AppModel {
             self.enrolled_fingers.clear();
         } else {
             self.enrolled_fingers
-                .retain(|f| Some(f.as_str()) != self.selected_finger.as_finger_id());
+                .retain(|f| f.as_str() != self.selected_finger.as_finger_id());
         }
 
         Task::none()
@@ -460,9 +467,7 @@ impl AppModel {
     pub(crate) fn on_register(&mut self) -> Task<cosmic::Action<Message>> {
         if !self.busy && self.device_path.is_some() && self.enrolling_finger.is_none() {
             self.busy = true;
-            if let Some(finger_id) = self.selected_finger.as_finger_id() {
-                self.enrolling_finger = Some(Arc::new(finger_id.to_string()));
-            }
+            self.enrolling_finger = Some(Arc::new(self.selected_finger.as_finger_id().to_string()));
             self.status = fl!("status-starting-enrollment");
         }
         Task::none()
@@ -507,15 +512,15 @@ impl AppModel {
     }
 
     pub fn on_theme_setting(&mut self, theme: AppTheme) -> Task<cosmic::Action<Message>> {
-        let mut tasks = vec![self.on_update_config(Config {
-            app_theme: theme,
-            ..self.config.clone()
-        })];
+        self.config.app_theme = theme;
 
-        let task = cosmic::command::set_theme(theme.theme());
+        if let Some(handler) = &self.config_handler
+            && let Err(err) = self.config.write_entry(handler)
+        {
+            tracing::error!("failed to write config: {}", err);
+        }
 
-        tasks.push(task);
-        Task::batch(tasks)
+        cosmic::command::set_theme(theme.theme())
     }
 
     /// Selects a finger by numeric key (1-0).
@@ -537,26 +542,23 @@ impl AppModel {
         }
 
         if let Some(device) = self.devices.get(index)
-            && let Some(conn) = &self.connection {
-                self.status = fl!("status-searching-device");
-                self.busy = true;
-                return task_select_device(conn.clone(), device.path.clone());
-            }
+            && let Some(conn) = &self.connection
+        {
+            self.status = fl!("status-searching-device");
+            self.busy = true;
+            return task_select_device(conn.clone(), device.path.clone());
+        }
         Task::none()
     }
 
-    /// Cycles through selectable fingers (excludes DeleteAllUsersPrints).
+    /// Cycles through selectable fingers.
     ///
     /// **Returns** ***Task***()
     pub(crate) fn on_cycle_finger(&mut self, direction: i8) -> Task<cosmic::Action<Message>> {
         if self.busy {
             return Task::none();
         }
-        let fingers: Vec<Finger> = Finger::all()
-            .iter()
-            .filter(|f| f.as_finger_id().is_some())
-            .copied()
-            .collect();
+        let fingers = Finger::all();
         if let Some(pos) = fingers.iter().position(|f| *f == self.selected_finger) {
             let len = fingers.len() as i8;
             let next = ((pos as i8 + direction) % len + len) % len;
@@ -564,5 +566,20 @@ impl AppModel {
             self.selected_finger = fingers[next as usize];
         }
         Task::none()
+    }
+
+    /// Handles asynchronously loaded user list, builds nav bar and selects current user.
+    ///
+    /// **Returns** ***update_title_task***() and ***list_fingers_task***()
+    pub(crate) fn on_users_loaded(
+        &mut self,
+        users: Vec<UserOption>,
+    ) -> Task<cosmic::Action<Message>> {
+        let (nav, selected_user) = build_nav(&users);
+        self.nav = nav;
+        self.users = users;
+        self.selected_user = selected_user;
+
+        Task::batch(vec![self.update_title_task(), self.list_fingers_task()])
     }
 }

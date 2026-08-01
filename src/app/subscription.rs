@@ -107,7 +107,7 @@ pub(crate) fn verify_subscription(data: VerifyData) -> Subscription<Message> {
             match verify_finger_process(
                 data.connection,
                 &data.device_path,
-                data.finger.as_finger_id().unwrap_or_default(),
+                data.finger.as_finger_id(),
                 &data.username,
                 &mut output,
             )
@@ -169,7 +169,10 @@ pub fn portal_theme_subscription(app_theme: crate::config::AppTheme) -> Subscrip
 
 /// **Returns** a subscription to key events 0-9, r, v, c, Ctrl + d/,/q and F1
 pub fn key_subscription() -> Subscription<Message> {
-    cosmic::iced::event::listen_raw(|event, _status, _window| {
+    cosmic::iced::event::listen_raw(|event, status, _window| {
+        if status == cosmic::iced::event::Status::Captured {
+            return None;
+        }
         let Event::Keyboard(keyboard::Event::KeyPressed { key, modifiers, .. }) = event else {
             return None;
         };
