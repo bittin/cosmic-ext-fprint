@@ -29,8 +29,11 @@ If you don't have correct rights or incorrect password your attempt is just dism
 <a href='https://flathub.org/apps/org.github.cosmic_utils.enroll'><img width='240' alt='Get it on Flathub' src='https://flathub.org/api/badge?svg&locale=en'/></a>
 ### AUR
 You can just [go get it][aur] but I recommend installing using [Shelly][shelly] for instance.
+### AppImage
+Download from [Releases][latest-release]
 
 [shelly]: https://www.seafoam-labs.org/shelly-alpm
 [aur]: https://aur.archlinux.org/packages/enroll
 [fprintd]: https://fprint.freedesktop.org/
 [open-fprintd]: https://github.com/uunicorn/open-fprintd
+[latest-release]: /../../releases/latest
