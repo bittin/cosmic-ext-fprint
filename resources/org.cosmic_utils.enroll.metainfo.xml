@@ -123,6 +123,16 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.2.3" date="2026-08-03">
+      <description>
+        <p>
+          Changes:
+        </p>
+        <ul>
+          <li>Use styled button Suggested, Default and Destructive for app actions.</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.2" date="2026-07-29">
       <description>
         <p>
