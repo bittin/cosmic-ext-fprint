@@ -8,6 +8,8 @@ This project adheres to [Semantic Versioning][SemVer], [Conventional Commits][Co
 
 ## Translators
 
+This project is included in `cosmic-utils` [Weblate][weblate] instance for translations now. Please considering making an account and submitting translations over there. You can also contribute to other projects. Thanks to [Weblate](https://weblate.org) for sponsoring hosting for libre projects.
+
 [Fluent][fluent] is used for localization of the software. Fluent's translation files are found in the [i18n directory](./i18n). New translations may copy the [English (en) localization](./i18n/en) of the project, rename `en` to the desired [ISO 639-1 language code][iso-codes], and then translations can be provided for each [message identifier][fluent-guide]. If no translation is necessary, the message may be omitted.
 
 ## Packaging
@@ -21,20 +23,6 @@ just build-vendored
 
 It is recommended to build a source tarball with the vendored dependencies, which can typically be done by running `just vendor` on the host system before it enters the build environment.
 
-### Launchpad
-
-Adding debian folder with relevant files &
-
-`just rootdir=debian/cosmic-utils-enroll prefix=/usr install`
-
-### AUR
-
-Creating a `PKGBUILD` and submitting there. I don't know whether the license is compatible.
-
-### Copr
-
-Any GitHub Action needed to automate can be added.
-
 [SemVer]: https://semver.org/spec/v2.0.0.html
 [CoCo]: https://www.conventionalcommits.org/en/v1.0.0/#specification
 [KeCh]: https://keepachangelog.com/en/1.0.0/
@@ -42,4 +30,4 @@ Any GitHub Action needed to automate can be added.
 [iso-codes]: https://en.wikipedia.org/wiki/ISO_639-1
 [fluent-guide]: https://projectfluent.org/fluent/guide/
 [flathub]: https://flathub.org/
-[debian]: https://www.debian.org/
+[weblate]: https://hosted.weblate.org/projects/cosmic-utils/enroll/
