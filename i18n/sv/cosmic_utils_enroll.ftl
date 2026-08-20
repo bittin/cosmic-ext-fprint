@@ -4,7 +4,7 @@ settings = Inställningar
 view = Visa
 fprint = Registrera
 welcome = Registrera och/eller radera fingeravtryck
-git-description = Git commit {$hash} på {$date}
+git-description = Git commit { $hash } på { $date }
 register = Registrera
 verify = Verifiera
 delete = Radera
@@ -20,18 +20,15 @@ confirm-clear = Är du säker?
 clearing-device = Rensar alla fingeravtryck från enheten för alla kända användare...
 device-cleared = Rensad för alla kända användare.
 clear-device-confirm = Är du säker du vill radera fingeravtryck för alla kända användare?
-
 settings-ui = Användargränssnitt
 alternative-ui = Andra UI
 settings-clear-device = Radera alla fingeravtryck
 settings-theme = Tema
-
 register-tooltip = Registrera ett nytt fingeravtryck
 delete-tooltip = Raderar detta fingeravtryck
 clear-tooltip = Fungerar bara för existerande användare
 verify-tooltip = Verifierar fingeravtrycket mot de registrerade fingeravtrycken
-
-verify-finger = Placera {$finger} på läsaren
+verify-finger = Placera { $finger } på läsaren
 verify-no-match = Fingerprint matchade inte
 verify-match = Fingerprint matchade
 verify-retry-scan = Kunde inte läsa fingeravtrycket. Försök igen.
@@ -42,7 +39,6 @@ verify-too-fast = För snabb touch. Försök igen.
 verify-disconnected = Enheten är frånkopplad. Stäng fönstret.
 verify-unknown-error = Det uppstod ett okänt fel.
 verify-cancelled = Verifiering avbruten.
-
 page-right-thumb = Höger tumme
 page-right-index-finger = Höger pekfinger
 page-right-middle-finger = Höger långfinger
@@ -54,14 +50,12 @@ page-left-middle-finger = Vänster långfinger
 page-left-ring-finger = Vänster ringfinger
 page-left-little-finger = Vänster lillfinger
 page-delete-all-users-prints = Radera alla användarens fingeravtryck
-
 status-connecting = Ansluter till system bus...
 status-searching-device = Söker efter fingeravtrycksläsare...
 status-device-found = Välj vilket fingeravtryck att registrera.
 status-no-device-found = Ingen fingeravtrycksläsare hittades.
 status-starting-enrollment = Startar registrering...
 status-starting-verification = Startar verifiering...
-
 enroll-starting = Placera fingret på läsaren för att börja.
 enroll-stage-passed = Skanningen lyckades. Fortsätt.
 enroll-retry-scan = Kunde inte avläsa fingeravtryck. Vänligen försök igen.
@@ -76,7 +70,6 @@ enroll-data-full = Fingeravtryckslagringen är full. Radera några fingeravtryck
 enroll-too-fast = Svepningen gick för snabbt. Svep långsammare.
 enroll-duplicate = Detta finger är redan registrerat.
 enroll-cancelled = Registreringen avbruten.
-
 error-permission-denied = Tillstånd nekat.
 error-already-in-use = Enhet används redan av ett annat program.
 error-internal = Ett internt fel uppstod.
@@ -85,5 +78,18 @@ error-claim-device = Kunde inte göra anspråk på enhet.
 error-device-not-found = Fingeravtrycksenhet hittades inte.
 error-timeout = Åtgärd har nått tidsgränsen.
 error-prints-not-deleted = Kunde inte radera fingeravtryck.
-error-connect-dbus = Misslyckades att ansluta till DBus: {$err}
+error-connect-dbus = Misslyckades att ansluta till DBus: { $err }
 error-unsupported-operation = Den här åtgärden stöds inte av fingeravtryckstjänsten. Den installerade fprintd-implementationen kan vara inkompatibel.
+help = Hjälp
+about-licenses = Licensinformation
+help-fprintd = Om du har några problem, kontrollera först att du har fprintd korrekt installerat. Du hittar mer information på deras webbplats:
+help-validity = För viss hårdvara, som till exempel Validity-skannrar, behöver du för närvarande använda open-fprintd istället.
+help-pam = För att kunna använda fingeravtryck effektivt måste PAM också konfigureras för att använda fprintd-modulen för autentisering. Du kan hitta exempel här:
+settings-device =
+    { $nbr ->
+        [1] Du har { $nbr } stödd enhet
+       *[other] Du har { $nbr } stödda enheter
+    }
+theme-system = System
+theme-light = Ljust
+theme-dark = Mörkt
