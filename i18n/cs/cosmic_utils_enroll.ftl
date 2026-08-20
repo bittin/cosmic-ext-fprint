@@ -5,7 +5,7 @@ help = Nápověda
 view = Zobrazení
 fprint = Registrovat
 welcome = Registrujte nebo smažte otisky prstů
-git-description = Git commit {$hash} dne {$date}
+git-description = Git commit { $hash } dne { $date }
 register = Registrovat
 verify = Ověřit
 delete = Smazat
@@ -21,32 +21,27 @@ confirm-clear = Jste si jistí?
 clearing-device = Mazání všech otisků ze zařízení pro všechny známé uživatele...
 device-cleared = Zařízení bylo vymazáno pro všechny známé uživatele.
 clear-device-confirm = Opravdu chcete vymazat otisky pro VŠECHNY známé uživatele?
-
 about-licenses = Informace o licencích
 help-fprintd = Pokud narazíte na problémy, nejprve zkontrolujte, zda máte správně nainstalovanou službu fprintd. Více informací najdete na jejich webových stránkách:
 help-pam = Aby bylo možné otisk prstu účinně využívat, musí být PAM nakonfigurován tak, aby pro ověřování používal modul fprintd. Příklady konfigurace najdete zde:
-
 settings-ui = Uživatelské rozhraní
 alternative-ui = Alternativní UI
 settings-clear-device = Odstranit všechny otisky
 settings-theme = Motiv
 settings-device =
-    Máte {$nbr} { $nbr ->
+    Máte { $nbr } { $nbr ->
         [1] podporované
         [few] podporovaná
-        *[other] podporovaných
+       *[other] podporovaných
     } zařízení
-
 theme-system = Podle systému
 theme-light = Světlý
 theme-dark = Tmavý
-
 register-tooltip = Zaregistruje nový otisk prstu
 delete-tooltip = Smaže tento otisk prstu
 clear-tooltip = Funguje pouze pro stále existující uživatele
 verify-tooltip = Ověří otisk prstu proti uloženým otiskům
-
-verify-finger = Přiložte {$finger} na čtečku
+verify-finger = Přiložte { $finger } na čtečku
 verify-no-match = Otisk se neshoduje
 verify-match = Otisk se shoduje
 verify-retry-scan = Otisk se nepodařilo načíst. Zkuste to znovu.
@@ -57,7 +52,6 @@ verify-too-fast = Dotyk byl příliš rychlý. Zkuste to znovu.
 verify-disconnected = Zařízení bylo odpojeno. Zavřete okno.
 verify-unknown-error = Došlo k neznámé chybě.
 verify-cancelled = Ověřování bylo zrušeno.
-
 page-right-thumb = Pravý palec
 page-right-index-finger = Pravý ukazováček
 page-right-middle-finger = Pravý prostředníček
@@ -69,14 +63,12 @@ page-left-middle-finger = Levý prostředníček
 page-left-ring-finger = Levý prsteníček
 page-left-little-finger = Levý malíček
 page-delete-all-users-prints = Smazat otisky všech uživatelů
-
 status-connecting = Připojování k systémové sběrnici...
 status-searching-device = Hledání čtečky otisků...
 status-device-found = Vyberte, který otisk chcete zaregistrovat.
 status-no-device-found = Nebyla nalezena čtečka otisků.
 status-starting-enrollment = Spouští se registrace...
 status-starting-verification = Spouští se ověřování...
-
 enroll-starting = Přiložte prst na čtečku pro zahájení.
 enroll-stage-passed = Sken proběhl úspěšně. Pokračujte.
 enroll-retry-scan = Otisk se nepodařilo načíst. Zkuste to prosím znovu.
@@ -91,7 +83,6 @@ enroll-data-full = Úložiště otisků je plné. Smažte prosím některé otis
 enroll-too-fast = Přejetí bylo příliš rychlé. Přejíždějte prosím pomaleji.
 enroll-duplicate = Tento prst je již zaregistrován.
 enroll-cancelled = Registrace byla zrušena.
-
 error-permission-denied = Přístup odepřen.
 error-already-in-use = Zařízení již používá jiná aplikace.
 error-internal = Došlo k interní chybě.
@@ -100,5 +91,6 @@ error-claim-device = Nepodařilo se převzít zařízení.
 error-device-not-found = Zařízení pro otisky prstů nebylo nalezeno.
 error-timeout = Operace vypršela.
 error-prints-not-deleted = Otisky se nepodařilo smazat.
-error-connect-dbus = Nepodařilo se připojit k DBus: {$err}
+error-connect-dbus = Nepodařilo se připojit k DBus: { $err }
 error-unsupported-operation = Tato operace není podporována službou otisků prstů. Nainstalovaná implementace fprintd může být nekompatibilní.
+help-validity = U některého hardwaru, například skenerů Validity, je v současné době nutné použít open-fprintd.
