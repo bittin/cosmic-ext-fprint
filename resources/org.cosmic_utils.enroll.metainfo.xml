@@ -123,6 +123,20 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.2.4" date="2026-08-20">
+      <description>
+        <p>
+          Changes:
+        </p>
+        <ul>
+          <li>Portuguese (Brazil) translation by @carvalhods</li>
+          <li>Partial Chinese (Simplified Han script) translation by @Gerseneck</li>
+          <li>Updated Swedish translation by @bittin</li>
+          <li>Updated Czech translation by @lorduskordus</li>
+          <li>Failed Verify (due to busy device etc) no longer displays the Cancel button.</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.3" date="2026-08-03">
       <description>
         <p>
