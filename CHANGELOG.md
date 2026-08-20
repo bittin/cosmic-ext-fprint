@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Portuguese (Brazil) translation by @carvalhods
+- Partial Chinese (Simplified Han script) translation by @Gerseneck
+- Updated Swedish translation by @bittin
+- Updated Czech translation by @lorduskordus
+
 ### Fixed
 
 - Failed Verify (due to busy device etc) no longer displays the Cancel button.
