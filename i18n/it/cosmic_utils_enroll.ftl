@@ -4,7 +4,7 @@ settings = Impostazioni
 view = Vista
 fprint = Registra
 welcome = Registra e/o elimina impronte digitali
-git-description = Commit Git {$hash} del {$date}
+git-description = Commit Git { $hash } del { $date }
 register = Registra
 verify = Verifica
 delete = Elimina
@@ -20,22 +20,18 @@ confirm-clear = Sei sicuro?
 clearing-device = Cancellazione di tutte le impronte digitali dal dispositivo per tutti gli utenti conosciuti...
 device-cleared = Dispositivo svuotato per tutti gli utenti conosciuti.
 clear-device-confirm = Sei sicuro di voler cancellare le impronte digitali per TUTTI gli utenti conosciuti?
-
 settings-ui = Interfaccia Utente
 alternative-ui = Interfaccia Alternativa
 settings-clear-device = Rimuovi tutte le impronte digitali
 settings-theme = Tema
-
 theme-system = Sistema
 theme-light = Chiaro
 theme-dark = Scuro
-
 register-tooltip = Registra una nuova impronta digitale
 delete-tooltip = Elimina questa impronta digitale
 clear-tooltip = Funziona solo per utenti ancora esistenti
 verify-tooltip = Verifica l'impronta digitale confrontandola con quelle registrate
-
-verify-finger = Posiziona {$finger} sul lettore
+verify-finger = Posiziona { $finger } sul lettore
 verify-no-match = L'impronta digitale non corrisponde
 verify-match = Impronta digitale corrispondente
 verify-retry-scan = Impossibile leggere l'impronta digitale. Riprova.
@@ -46,7 +42,6 @@ verify-too-fast = Tocco troppo veloce. Riprova.
 verify-disconnected = Dispositivo disconnesso. Chiudi la finestra.
 verify-unknown-error = Si è verificato un errore sconosciuto.
 verify-cancelled = Verifica annullata.
-
 page-right-thumb = Pollice Destro
 page-right-index-finger = Indice Destro
 page-right-middle-finger = Medio Destro
@@ -58,14 +53,12 @@ page-left-middle-finger = Medio Sinistro
 page-left-ring-finger = Anulare Sinistro
 page-left-little-finger = Mignolo Sinistro
 page-delete-all-users-prints = Elimina tutte le impronte dell'utente
-
 status-connecting = Connessione al bus di sistema...
 status-searching-device = Ricerca lettore impronte digitali...
 status-device-found = Scegli quale impronta digitale registrare.
 status-no-device-found = Nessun lettore di impronte digitali trovato.
 status-starting-enrollment = Avvio registrazione...
 status-starting-verification = Avvio verifica...
-
 enroll-starting = Posiziona il dito sul lettore per iniziare.
 enroll-stage-passed = Scansione riuscita. Continua.
 enroll-retry-scan = Impossibile leggere l'impronta digitale. Riprova.
@@ -80,7 +73,6 @@ enroll-data-full = Memoria impronte digitali piena. Elimina alcune impronte digi
 enroll-too-fast = Scorrimento troppo veloce. Scorri più lentamente.
 enroll-duplicate = Questo dito è già registrato.
 enroll-cancelled = Registrazione annullata.
-
 error-permission-denied = Permesso negato.
 error-already-in-use = Il dispositivo è già in uso da un'altra applicazione.
 error-internal = Si è verificato un errore interno.
@@ -89,5 +81,5 @@ error-claim-device = Impossibile acquisire il dispositivo.
 error-device-not-found = Dispositivo per impronte digitali non trovato.
 error-timeout = Operazione scaduta.
 error-prints-not-deleted = Impossibile eliminare le impronte digitali.
-error-connect-dbus = Connessione a DBus fallita: {$err}
+error-connect-dbus = Connessione a DBus fallita: { $err }
 error-unsupported-operation = Questa operazione non è supportata dal servizio di impronte digitali. L'implementazione di fprintd installata potrebbe essere incompatibile.
