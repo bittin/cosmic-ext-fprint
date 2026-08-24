@@ -4,7 +4,7 @@ settings = Налаштування
 view = Вид
 fprint = Зареєструвати
 welcome = Зареєструйте або видаліть відбитки пальців
-git-description = Випуск Git {$hash} від {$date}
+git-description = Випуск Git { $hash } від { $date }
 register = Зареєструвати
 verify = Перевірити
 delete = Видалити
@@ -20,22 +20,18 @@ confirm-clear = Впевнені?
 clearing-device = Очищення з пристрою для всіх користувачів...
 device-cleared = Пристрій очищено для всіх користувачів.
 clear-device-confirm = Впевнені, що хочете видалити всі відбитки для ВСІХ користувачів?
-
 settings-ui = Інтерфейс
 alternative-ui = Інший інтерфейс
 settings-clear-device = Видалити всі відбитки
 settings-theme = Тема
-
 theme-system = Системна
 theme-light = Світла
 theme-dark = Темна
-
 register-tooltip = Зареєструвати новий відбиток
 delete-tooltip = Видалити цей відбиток
 clear-tooltip = Працює лише для наявних користувачів
 verify-tooltip = Перевіряє відбиток із зареєстрованими
-
-verify-finger = Помістіть {$finger} на сканер
+verify-finger = Помістіть { $finger } на сканер
 verify-no-match = Відбиток не збігається
 verify-match = Відбиток збігається
 verify-retry-scan = Не вдалося зчитати відбиток. Повторіть спробу.
@@ -46,7 +42,6 @@ verify-too-fast = Дотик занадто швидкий. Повторіть �
 verify-disconnected = Пристрій від’єднано. Закрийте вікно.
 verify-unknown-error = Сталася невідома помилка.
 verify-cancelled = Верифікація скасована.
-
 page-right-thumb = Правий великий палець
 page-right-index-finger = Правий вказівний
 page-right-middle-finger = Правий середній
@@ -58,14 +53,12 @@ page-left-middle-finger = Лівий середній
 page-left-ring-finger = Лівий безіменний
 page-left-little-finger = Лівий мізинець
 page-delete-all-users-prints = Видалити всі відбитки
-
 status-connecting = Підключення до системної шини...
 status-searching-device = Пошук сканера відбитків...
 status-device-found = Виберіть відбиток для реєстрації.
 status-no-device-found = Сканер відбитків пальців не знайдено.
 status-starting-enrollment = Розпочато реєстрацію...
 status-starting-verification = Розпочато перевірку...
-
 enroll-starting = Помістіть палець на сканер, щоб почати.
 enroll-stage-passed = Скан успішний. Продовжуйте.
 enroll-retry-scan = Не вдалося прочитати відбиток. Повторіть спробу.
@@ -80,7 +73,6 @@ enroll-data-full = Пам’ять для відбитків заповнена.
 enroll-too-fast = Занадто швидко. Проведіть пальцем повільніше.
 enroll-duplicate = Цей палець вже зареєстровано.
 enroll-cancelled = Реєстрація скасована.
-
 error-permission-denied = Доступ заборонено.
 error-already-in-use = Пристрій вже використовується іншим застосунком.
 error-internal = Виникла внутрішня помилка.
@@ -89,5 +81,5 @@ error-claim-device = Не вдалося отримати доступ до пр
 error-device-not-found = Сканер відбитків пальців не знайдено.
 error-timeout = Час очікування вичерпано.
 error-prints-not-deleted = Не вдалося видалити відбитки.
-error-connect-dbus = Не вдалося підключитися до DBus: {$err}
+error-connect-dbus = Не вдалося підключитися до DBus: { $err }
 error-unsupported-operation = Ця операція не підтримується службою відбитків пальців. Встановлена реалізація fprintd може бути несумісною.
