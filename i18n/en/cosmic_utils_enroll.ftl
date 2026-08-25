@@ -5,7 +5,7 @@ help = Help
 view = View
 fprint = Enroll
 welcome = Register and/or delete fingerprints
-git-description = Git commit {$hash} on {$date}
+git-description = Git commit { $hash } on { $date }
 register = Register
 verify = Verify
 delete = Delete
@@ -13,40 +13,35 @@ danger = Danger
 cancel = Cancel
 success = Success. Now go register a print.
 deleted = Deleted fingerprint.
-deleting = Deleting fingerprint...
+deleting = Deleting fingerprint…
 delete-all = Delete all
 delete-all-fallback = This fingerprint service does not support deleting a single fingerprint. Delete all of this user's fingerprints instead?
 clear-device = Clear Device
 confirm-clear = Are you sure?
-clearing-device = Clearing all fingerprints from device for all known users...
+clearing-device = Clearing all fingerprints from device for all known users…
 device-cleared = Device cleared for all known users.
 clear-device-confirm = Are you sure you want to clear fingerprints for ALL known users?
-
 about-licenses = License information
 help-fprintd = If you have any issues please first check you have fprintd correctly installed. You can find more information from their website:
 help-validity = For some hardware, like Validity scanners for example, you need to currently use open-fprintd instead.
 help-pam = Also to be able to utilize fingerprint effectively PAM must be configured to use fprintd module for authentication. You can find examples here:
-
 settings-ui = User Interface
 alternative-ui = Alternative UI
 settings-clear-device = Remove all fingerprints
 settings-theme = Theme
 settings-device =
     { $nbr ->
-        [1] You have {$nbr} supported device
-        *[other] You have {$nbr} supported devices
+        [1] You have { $nbr } supported device
+       *[other] You have { $nbr } supported devices
     }
-
 theme-system = System
 theme-light = Light
 theme-dark = Dark
-
 register-tooltip = Registers a new fingerprint
 delete-tooltip = Deletes this fingerprint
 clear-tooltip = Only works for still existing users
 verify-tooltip = Verifies the fingerprint against the enrolled fingerprints
-
-verify-finger = Place {$finger} on reader
+verify-finger = Place { $finger } on reader
 verify-no-match = Fingerprint did not match
 verify-match = Fingerprint matched
 verify-retry-scan = Could not read fingerprint. Try again.
@@ -57,7 +52,6 @@ verify-too-fast = Too fast touch. Try again.
 verify-disconnected = Device disconnected. Close window.
 verify-unknown-error = There was an unknown error.
 verify-cancelled = Verification cancelled.
-
 page-right-thumb = Right Thumb
 page-right-index-finger = Right Index Finger
 page-right-middle-finger = Right Middle Finger
@@ -69,14 +63,12 @@ page-left-middle-finger = Left Middle Finger
 page-left-ring-finger = Left Ring Finger
 page-left-little-finger = Left Little Finger
 page-delete-all-users-prints = Delete All User's Prints
-
-status-connecting = Connecting to system bus...
-status-searching-device = Searching for fingerprint reader...
+status-connecting = Connecting to system bus…
+status-searching-device = Searching for fingerprint reader…
 status-device-found = Choose which fingerprint to register.
 status-no-device-found = No fingerprint reader found.
-status-starting-enrollment = Starting enrollment...
-status-starting-verification = Starting verification...
-
+status-starting-enrollment = Starting enrollment…
+status-starting-verification = Starting verification…
 enroll-starting = Place your finger on the reader to start.
 enroll-stage-passed = Scan successful. Keep going.
 enroll-retry-scan = Could not read fingerprint. Please try again.
@@ -91,7 +83,6 @@ enroll-data-full = Fingerprint storage is full. Please delete some fingerprints.
 enroll-too-fast = Swipe was too fast. Please swipe slower.
 enroll-duplicate = This finger is already enrolled.
 enroll-cancelled = Enrollment cancelled.
-
 error-permission-denied = Permission denied.
 error-already-in-use = Device is already in use by another application.
 error-internal = An internal error occurred.
@@ -100,5 +91,5 @@ error-claim-device = Could not claim the device.
 error-device-not-found = Fingerprint device not found.
 error-timeout = Operation timed out.
 error-prints-not-deleted = Could not delete fingerprints.
-error-connect-dbus = Failed to connect to DBus: {$err}
+error-connect-dbus = Failed to connect to DBus: { $err }
 error-unsupported-operation = This operation is not supported by the fingerprint service. The installed fprintd implementation may be incompatible.
