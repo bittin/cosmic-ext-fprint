@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Weblate recommended switching three dots to ellipsis character
+
 ### Added
 
 - Updated Chinese (Simplified Han script) translation by @Gerseneck
