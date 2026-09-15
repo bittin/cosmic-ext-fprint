@@ -1,10 +1,10 @@
-### Enroll is fingerprint manager software
-###
-### You don't have to follow these exactly just keep the users in mind.
-###
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+### You don't have to translate these exactly just as long as you keep the users in mind.
 
 ## Most prominent parts of user interface.
-## 
 
 # Header message.
 app-title = Enroll Fingerprint
@@ -53,8 +53,7 @@ device-cleared = Device cleared for all known users.
 # Dialog message that confirms you really wanted deletion of all prints.
 clear-device-confirm = Are you sure you want to clear fingerprints for ALL known users?
 
-## Licensing, Settings and Help related content. Some links are still English only.
-## 
+## Licensing, Settings and Help related content. Some links are still English only content.
 
 # Section that contains link to licensing information of it and all its dependencies.
 about-licenses = License information
@@ -86,7 +85,6 @@ theme-light = Light
 theme-dark = Dark
 
 ## Messages that appear when you hover a button or icon for additional context.
-## 
 
 # Message displayed when you hover over Register button.
 register-tooltip = Registers a new fingerprint
@@ -98,7 +96,6 @@ clear-tooltip = Only works for still existing users
 verify-tooltip = Verifies the fingerprint against the enrolled fingerprints
 
 ## Messages from fprintd Verify API adjusted to be less technical and more helpful.
-## 
 
 # Status when you started to Verify.
 verify-finger = Place { $finger } on reader
@@ -123,8 +120,7 @@ verify-unknown-error = There was an unknown error.
 # Verify was cancelled.
 verify-cancelled = Verification cancelled.
 
-## Finger names. page is left as a historical artifact.
-## 
+## Finger names.
 
 # Name of right thumb
 page-right-thumb = Right Thumb
@@ -150,7 +146,6 @@ page-left-little-finger = Left Little Finger
 page-delete-all-users-prints = Delete All User's Prints
 
 ## These cover gap states left by fprintd in the application to keep users informed.
-## 
 
 # Message displayed whilst application connects to DBus.
 status-connecting = Connecting to system bus…
@@ -166,7 +161,6 @@ status-starting-enrollment = Starting enrollment…
 status-starting-verification = Starting verification…
 
 ## Fprintd Enroll API messages converted into less technical, more human, ones.
-## 
 
 # When the device is ready and waiting for the first touch.
 enroll-starting = Place your finger on the reader to start.
@@ -198,7 +192,6 @@ enroll-duplicate = This finger is already enrolled.
 enroll-cancelled = Enrollment cancelled.
 
 ## Fprintd API Error messages programmer to human conversions.
-## 
 
 # Whatever you tried to do fprintd could not get permission for it from the system.
 error-permission-denied = Permission denied.
