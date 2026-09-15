@@ -9,10 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Russian translation by @1280px
 - Hungarian translation by @therealmate
 
 ### Fixed
 
+- Simplified Han script (Chinese) translation by @Gerseneck
 - Polish translation updated by @VandaLHJ
 
 ## [1.2.6](https://github.com/cosmic-utils/enroll/releases/tag/v1.2.6) - 2026-09-04
