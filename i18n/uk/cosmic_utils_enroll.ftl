@@ -2,7 +2,6 @@ app-title = Відбитки пальців
 about = Про застосунок
 settings = Налаштування
 view = Вид
-fprint = Зареєструвати
 welcome = Зареєструйте або видаліть відбитки пальців
 git-description = Випуск Git { $hash } від { $date }
 register = Зареєструвати
