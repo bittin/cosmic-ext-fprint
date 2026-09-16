@@ -1,4 +1,4 @@
-app-title = Odciski Palców Enroll
+app-title = Enroll
 about = O aplikacji
 settings = Ustawienia
 help = Pomoc
