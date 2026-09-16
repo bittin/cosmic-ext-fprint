@@ -3,7 +3,6 @@ about = Névjegy
 settings = Beállítások
 help = Súgó
 view = Nézet
-fprint = Hozzáadás
 welcome = Ujjlenyomatok regisztrálása és/vagy törlése
 git-description = Git commit { $hash } ekkor: { $date }
 register = Regisztrálás

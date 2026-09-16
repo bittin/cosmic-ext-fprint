@@ -3,7 +3,6 @@ about = O aplikacji
 settings = Ustawienia
 help = Pomoc
 view = Widok
-fprint = Enroll
 welcome = Dodaj lub/i usuń odciski palców
 git-description = Git commit { $hash } z { $date }
 register = Dodaj

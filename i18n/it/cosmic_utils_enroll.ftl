@@ -2,7 +2,6 @@ app-title = Registrazione Impronta Digitale
 about = Informazioni
 settings = Impostazioni
 view = Vista
-fprint = Registra
 welcome = Registra e/o elimina impronte digitali
 git-description = Commit Git { $hash } del { $date }
 register = Registra

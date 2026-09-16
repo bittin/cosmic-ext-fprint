@@ -3,7 +3,6 @@ about = 关于
 settings = 设置
 help = 帮助
 view = 视图
-fprint = Enroll
 welcome = 登记或删除指纹
 register = 登记
 verify = 核实

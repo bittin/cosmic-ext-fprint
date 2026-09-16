@@ -2,7 +2,6 @@ app-title = Enroll fingeravtryck
 about = Om
 settings = Inställningar
 view = Visa
-fprint = Registrera
 welcome = Registrera och/eller radera fingeravtryck
 git-description = Git commit { $hash } på { $date }
 register = Registrera

@@ -3,7 +3,6 @@ about = Sobre
 settings = Configurações
 help = Ajuda
 view = Exibir
-fprint = Biometria
 welcome = Cadastre e/ou exclua impressões digitais
 git-description = Git commit { $hash } de { $date }
 register = Cadastrar
