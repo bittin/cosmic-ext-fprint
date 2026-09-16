@@ -34,6 +34,7 @@ impl AppModel {
         let icon = widget::svg(widget::svg::Handle::from_memory(APP_ICON));
 
         let title = text::title3(fl!("app-title"));
+        let msg = text::body(fl!("welcome"));
 
         let hash = env!("VERGEN_GIT_SHA");
         let short_hash: String = hash.chars().take(7).collect();
@@ -51,6 +52,7 @@ impl AppModel {
         Column::new()
             .push(icon)
             .push(title)
+            .push(msg)
             .push(link)
             .push(
                 button::link(fl!(
