@@ -3,7 +3,6 @@ about = O aplikaci
 settings = Nastavení
 help = Nápověda
 view = Zobrazení
-fprint = Registrovat
 welcome = Registrujte nebo smažte otisky prstů
 git-description = Git commit { $hash } dne { $date }
 register = Registrovat

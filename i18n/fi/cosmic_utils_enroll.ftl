@@ -3,7 +3,6 @@ about = Tietoa
 settings = Asetukset
 view = Näkymä
 help = Apua
-fprint = Rekisteröi sormenjälki
 welcome = Rekisteröi tai poista sormenjälkiä
 git-description = Git julkaisu { $hash } päivältä { $date }
 register = Rekisteröi
