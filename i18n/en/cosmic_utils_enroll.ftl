@@ -7,7 +7,7 @@
 ## Most prominent parts of user interface.
 
 # Header message.
-app-title = Enroll Fingerprint
+app-title = Enroll
 # View menu item for opening About section.
 about = About
 # View menu item for opening Settings section.
@@ -16,8 +16,6 @@ settings = Settings
 help = Help
 # Menu in the header that contains About, Settings & Help sections.
 view = View
-# Fprint used to the name of the application but it was renamed as Enroll. Use Enroll, or translate it as something else.
-fprint = Enroll
 # Welcome message
 welcome = Register and/or delete fingerprints
 # In About section there is a link to the git commit of the current build and when it was build.

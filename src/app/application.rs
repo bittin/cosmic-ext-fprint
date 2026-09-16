@@ -8,10 +8,10 @@ use crate::app::{
 };
 use crate::config::{Config, read_config};
 use crate::fl;
-use cosmic::app::context_drawer;
 
 use cosmic::iced::Subscription;
 use cosmic::{
+    app::context_drawer,
     prelude::*,
     widget::{self, dialog, menu, nav_bar},
 };
@@ -96,9 +96,27 @@ impl cosmic::Application for AppModel {
             menu::items(
                 &self.key_binds,
                 vec![
-                    menu::Item::Button(fl!("about"), None, MenuAction::About),
-                    menu::Item::Button(fl!("settings"), None, MenuAction::Settings),
-                    menu::Item::Button(fl!("help"), None, MenuAction::Help),
+                    menu::Item::Button(
+                        fl!("about"),
+                        Some(widget::icon::Handle::from(widget::icon::Named::new(
+                            "help-about-symbolic",
+                        ))),
+                        MenuAction::About,
+                    ),
+                    menu::Item::Button(
+                        fl!("settings"),
+                        Some(widget::icon::Handle::from(widget::icon::Named::new(
+                            "preferences-system-symbolic",
+                        ))),
+                        MenuAction::Settings,
+                    ),
+                    menu::Item::Button(
+                        fl!("help"),
+                        Some(widget::icon::Handle::from(widget::icon::Named::new(
+                            "system-help-symbolic",
+                        ))),
+                        MenuAction::Help,
+                    ),
                 ],
             ),
         )]);
