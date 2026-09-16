@@ -72,6 +72,8 @@ pub struct AppModel {
     selected_finger: Finger,
     // List of enrolled fingers
     enrolled_fingers: Vec<String>,
+    // Confirm deleting a fingerprint
+    confirm_delete: bool,
     // Confirmation state for clearing the device
     confirm_clear: bool,
     // Confirmation state for falling back to deleting all of a user's prints

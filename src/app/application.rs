@@ -73,6 +73,7 @@ impl cosmic::Application for AppModel {
             selected_user: None,
             selected_finger: Finger::default(),
             enrolled_fingers: Vec::new(),
+            confirm_delete: false,
             confirm_clear: false,
             confirm_delete_all: false,
         };
@@ -103,6 +104,10 @@ impl cosmic::Application for AppModel {
         )]);
 
         vec![menu_bar.into()]
+    }
+
+    fn header_center(&self) -> Vec<Element<'_, Self::Message>> {
+        vec![widget::text::heading(fl!("app-title")).into()]
     }
 
     /// Enables the COSMIC application to create a nav bar with this model.
@@ -166,6 +171,19 @@ impl cosmic::Application for AppModel {
                     )
                     .secondary_action(
                         widget::button::standard(fl!("cancel")).on_press(Message::CancelDeleteAll),
+                    )
+                    .into(),
+            )
+        } else if self.confirm_delete {
+            Some(
+                dialog::dialog()
+                    .title(fl!("delete"))
+                    .body(fl!("confirm-clear"))
+                    .primary_action(
+                        widget::button::destructive(fl!("delete")).on_press(Message::Delete),
+                    )
+                    .secondary_action(
+                        widget::button::standard(fl!("cancel")).on_press(Message::Cancel),
                     )
                     .into(),
             )
@@ -274,6 +292,7 @@ impl cosmic::Application for AppModel {
             Message::ClearComplete(res) => self.on_clear_completion(res),
             Message::CloseApplication => self.on_close(),
             Message::Register => self.on_register(),
+            Message::Cancel => self.on_cancel(),
             Message::OpenRepositoryUrl => self.on_clicked_link(),
             Message::ToggleContextPage(context_page) => self.on_context_page_toggle(context_page),
             Message::UpdateConfig(config) => self.on_update_config(config),

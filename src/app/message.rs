@@ -33,6 +33,7 @@ pub enum Message {
     LaunchUrl(String),
     Delete,
     Register,
+    Cancel,
     ConnectionReady(zbus::Connection),
     DeviceFound(Option<(zbus::zvariant::OwnedObjectPath, DeviceProxy<'static>)>),
     UpdateDevices(Vec<DeviceOption>),
@@ -62,6 +63,14 @@ pub enum Message {
 
 // Section for handling of Messages
 impl AppModel {
+    /// Resets delete state
+    ///
+    /// **Returns** ***Task***()
+    pub(crate) fn on_cancel(&mut self) -> Task<cosmic::Action<Message>> {
+        self.confirm_delete = false;
+        Task::none()
+    }
+
     /// Closes the application
     ///
     /// **Return** ***Task***::*done*()
@@ -377,6 +386,11 @@ impl AppModel {
             return Task::none();
         }
 
+        if !self.confirm_delete {
+            self.confirm_delete = true;
+            return Task::none();
+        }
+
         if let (Some(path), Some(conn), Some(user)) = (
             self.device_path.clone(),
             self.connection.clone(),
@@ -386,7 +400,7 @@ impl AppModel {
             self.busy = true;
             let path = (*path).clone();
             let username = (*user.username).clone();
-
+            self.confirm_delete = false;
             let finger_name = self.selected_finger.as_finger_id().to_string();
             return task_delete_print(path, username, finger_name, conn);
         }
