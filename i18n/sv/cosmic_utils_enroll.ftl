@@ -1,4 +1,4 @@
-app-title = Enroll fingeravtryck
+app-title = Enroll
 about = Om
 settings = Inställningar
 view = Visa
