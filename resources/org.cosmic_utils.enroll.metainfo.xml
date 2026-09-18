@@ -9,6 +9,10 @@
   <summary xml:lang="fi">Sormenjälkien hallinointi</summary>
   <summary xml:lang="pl">Zarządzanie odciskami palców</summary>
   <summary xml:lang="se">Fingerprint registreringshantering</summary>
+  <summary xml:lang="it">Gestione dei dati relativi alle impronte digitali</summary>
+  <summary xml:lang="zh-Hans">指纹记录管理</summary>
+  <summary xml:lang="pt-BR">Gestão de registros de impressões digitais</summary>
+  <summary xml:lang="uk">Управління записами відбитків пальців</summary>
   <developer id="org.cosmic-utils">
     <name>Joonas Tuomi</name>
   </developer>
@@ -30,6 +34,15 @@
     </p>
     <p xml:lang="it">
       Gestione delle impronte digitali per sistemi monoutente e multiutente. Consente di creare, verificare ed eliminare le impronte digitali.
+    </p>
+    <p xml:lang="zh-Hans">
+      允许您注册、验证和删除指纹记录。也可用于管理其他用户的指纹记录。
+    </p>
+    <p xml:lang="pt-BR">
+      Permite registrar, verificar e excluir registros de impressões digitais. Também pode ser usado para gerenciá-los em nome de outro usuário.
+    </p>
+    <p xml:lang="uk">
+      Дозволяє реєструвати, перевіряти та видаляти записи відбитків пальців. Також може використовуватися для управління цими записами від імені іншого користувача.
     </p>
     <p>
       Select the user you wish to register, by default the current user, and then the finger. Click either Register to enroll a print for a new finger, Verify to match against an existing one or Delete to remove it.
@@ -117,10 +130,14 @@
       <caption xml:lang="pl">Główny Interfejs Użytkownika</caption>
       <caption xml:lang="se">Huvudsida</caption>
       <caption xml:lang="it">Interfaccia principale</caption>
+      <caption xml:lang="zh-Hans">主界面</caption>
+      <caption xml:lang="pt-BR">Interface de usuário principal</caption>
+      <caption xml:lang="uk">Головний інтерфейс користувача</caption>
     </screenshot>
     <screenshot>
       <image>
-          https://user.fm/files/v2-d137513e976d3dcc73e9db16ce385894/enroll-frosted.png      </image>
+          https://user.fm/files/v2-d137513e976d3dcc73e9db16ce385894/enroll-frosted.png      
+      </image>
       <caption>Starting view</caption>
     </screenshot>
     <screenshot>
