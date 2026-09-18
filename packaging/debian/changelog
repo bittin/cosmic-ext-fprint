@@ -1,3 +1,14 @@
+cosmic-utils-enroll (1.2.7-1) unstable; urgency=medium
+
+  * Missing icons to View menu items
+  * Russian translation by @1280px
+  * Hungarian translation by @therealmate
+  * Actually use the title in header bar
+  * Simplified Han script (Chinese) translation by @Gerseneck
+  * Polish translation updated by @VandaLHJ
+
+ -- Joonas Tuomi <git@joonastuomi.fi>  Fri, 18 Sep 2026 18:07:03 +0000
+
 cosmic-utils-enroll (1.2.6-1) unstable; urgency=medium
 
   * Polish translation by @VandaLHJ

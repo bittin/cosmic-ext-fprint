@@ -158,6 +158,21 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.2.7" date="2026-09-18">
+      <description>
+        <p>
+          Changes:
+        </p>
+        <ul>
+          <li>Missing icons to View menu items</li>
+          <li>Russian translation by @1280px</li>
+          <li>Hungarian translation by @therealmate</li>
+          <li>Actually use the title in header bar</li>
+          <li>Simplified Han script (Chinese) translation by @Gerseneck</li>
+          <li>Polish translation updated by @VandaLHJ</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.6" date="2026-09-04">
       <description>
         <p>
