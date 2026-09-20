@@ -173,22 +173,29 @@ pub fn key_subscription() -> Subscription<Message> {
         if status == cosmic::iced::event::Status::Captured {
             return None;
         }
-        let Event::Keyboard(keyboard::Event::KeyPressed { key, modifiers, .. }) = event else {
+        let Event::Keyboard(keyboard::Event::KeyPressed {
+            key,
+            modifiers,
+            physical_key,
+            ..
+        }) = event
+        else {
             return None;
         };
 
-        use crate::app::ContextPage;
+        use cosmic::widget::menu::action::MenuAction;
+        let key_binds = crate::app::default_key_binds();
+        if let Some((_, action)) = key_binds
+            .iter()
+            .find(|(key_bind, _)| key_bind.matches(modifiers, &key, Some(&physical_key)))
+        {
+            return Some(action.message());
+        }
+
         use cosmic::iced::keyboard::Key;
-        use cosmic::iced::keyboard::key::Named;
 
         match &key {
-            Key::Named(Named::F1)
-                if !modifiers.control() && !modifiers.logo() && !modifiers.alt() =>
-            {
-                Some(Message::ToggleContextPage(ContextPage::About))
-            }
             Key::Character(c) if modifiers.control() => match c.as_str() {
-                "," => Some(Message::ToggleContextPage(ContextPage::Settings)),
                 "q" => Some(Message::CloseApplication),
                 "d" => Some(Message::Delete),
                 _ => None,
