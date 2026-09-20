@@ -8,14 +8,16 @@
 
 # Header message.
 app-title = Enroll
-# View menu item for opening About section.
+# Menu item for opening a section.
+menu-about = About Enroll...
+menu-help = Help...
+menu-settings = Settings...
+# Header for About section.
 about = About
-# View menu item for opening Settings section.
+# Header for Settings section.
 settings = Settings
-# View menu item for opening Help section.
+# Header for Help section.
 help = Help
-# Menu in the header that contains About, Settings & Help sections.
-view = View
 # Welcome message
 welcome = Register and/or delete fingerprints
 # In About section there is a link to the git commit of the current build and when it was build.

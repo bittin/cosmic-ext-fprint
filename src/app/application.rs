@@ -13,7 +13,12 @@ use cosmic::iced::Subscription;
 use cosmic::{
     app::context_drawer,
     prelude::*,
-    widget::{self, dialog, menu, nav_bar},
+    theme,
+    widget::{
+        self, RcElementWrapper, button, dialog, icon, menu,
+        menu::{ItemHeight, ItemWidth},
+        nav_bar,
+    },
 };
 
 use super::AppModel;
@@ -92,40 +97,40 @@ impl cosmic::Application for AppModel {
     /// Elements to pack at the start of the header bar.
     fn header_start(&self) -> Vec<Element<'_, Self::Message>> {
         let menu_bar = menu::bar(vec![menu::Tree::with_children(
-            Element::from(menu::root(fl!("view"))),
+            RcElementWrapper::new(
+                button::icon(icon::from_name("open-menu-symbolic"))
+                    .padding([4, 12])
+                    .class(theme::Button::MenuRoot)
+                    .into(),
+            ),
             menu::items(
                 &self.key_binds,
                 vec![
                     menu::Item::Button(
-                        fl!("about"),
-                        Some(widget::icon::Handle::from(widget::icon::Named::new(
-                            "help-about-symbolic",
-                        ))),
-                        MenuAction::About,
+                        fl!("menu-help"),
+                        None,
+                        MenuAction::Help,
                     ),
+                    menu::Item::Divider,
                     menu::Item::Button(
-                        fl!("settings"),
-                        Some(widget::icon::Handle::from(widget::icon::Named::new(
-                            "preferences-system-symbolic",
-                        ))),
+                        fl!("menu-settings"),
+                        None,
                         MenuAction::Settings,
                     ),
+                    menu::Item::Divider,
                     menu::Item::Button(
-                        fl!("help"),
-                        Some(widget::icon::Handle::from(widget::icon::Named::new(
-                            "system-help-symbolic",
-                        ))),
-                        MenuAction::Help,
+                        fl!("menu-about"),
+                        None,
+                        MenuAction::About,
                     ),
                 ],
             ),
-        )]);
+        )])
+        .item_height(ItemHeight::Dynamic(40))
+        .item_width(ItemWidth::Uniform(360))
+        .spacing(4.0);
 
         vec![menu_bar.into()]
-    }
-
-    fn header_center(&self) -> Vec<Element<'_, Self::Message>> {
-        vec![widget::text::heading(fl!("app-title")).into()]
     }
 
     /// Enables the COSMIC application to create a nav bar with this model.
