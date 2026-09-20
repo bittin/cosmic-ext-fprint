@@ -57,6 +57,7 @@ impl cosmic::Application for AppModel {
             .icon(icon::from_name(Self::APP_ID))
             .version(env!("CARGO_PKG_VERSION"))
             .author("Joonas Tuomi")
+            .comments(fl!("welcome"))
             .license(env!("CARGO_PKG_LICENSE"))
             .license_url("https://spdx.org/licenses/MPL-2.0")
             .developers([("Joonas Tuomi", "github@joonastuomi.fi")])
