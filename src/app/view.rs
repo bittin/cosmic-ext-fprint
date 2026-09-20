@@ -2,10 +2,7 @@
 
 use crate::app::AppModel;
 use crate::app::Finger;
-use crate::{
-    app::message::{Message, REPOSITORY},
-    fl,
-};
+use crate::{app::message::Message, fl};
 use cosmic::cosmic_theme;
 use cosmic::iced::Alignment;
 use cosmic::iced::Length;
