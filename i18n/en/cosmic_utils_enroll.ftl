@@ -19,10 +19,8 @@ repository = Repository
 support = Support
 # Menu in the header that contains About, Settings & Help sections.
 view = View
-# Welcome message
+# About section comment
 welcome = Register and/or delete fingerprints
-# In About section there is a link to the git commit of the current build and when it was build.
-git-description = Git commit { $hash } on { $date }
 # Text displayed on a button that registers a fingerprint.
 register = Register
 # Text displayed on a button that verifies a fingerprint.
