@@ -14,6 +14,9 @@ about = About
 settings = Settings
 # View menu item for opening Help section.
 help = Help
+# Elements in About context drawer
+repository = Repository
+support = Support
 # Menu in the header that contains About, Settings & Help sections.
 view = View
 # Welcome message
