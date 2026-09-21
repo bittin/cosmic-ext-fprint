@@ -4,7 +4,6 @@ settings = Beállítások
 help = Súgó
 view = Nézet
 welcome = Ujjlenyomatok regisztrálása és/vagy törlése
-git-description = Git commit { $hash } ekkor: { $date }
 register = Regisztrálás
 verify = Ellenőrzés
 delete = Törlés

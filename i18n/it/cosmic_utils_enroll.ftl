@@ -3,7 +3,6 @@ about = Informazioni
 settings = Impostazioni
 view = Vista
 welcome = Registra e/o elimina impronte digitali
-git-description = Commit Git { $hash } del { $date }
 register = Registra
 verify = Verifica
 delete = Elimina
