@@ -4,7 +4,7 @@ use std::{collections::HashMap, sync::Arc};
 
 use cosmic::{
     cosmic_config,
-    widget::{menu, nav_bar},
+    widget::{about::About, menu, nav_bar},
 };
 
 use crate::{
@@ -36,6 +36,8 @@ pub struct AppModel {
     core: cosmic::Core,
     /// Display a context drawer with the designated page if defined.
     context_page: ContextPage,
+    /// About context drawer
+    about: About,
     /// Contains items assigned to the nav bar panel.
     nav: nav_bar::Model,
     /// Key bindings for the application's menu bar.
@@ -103,8 +105,9 @@ impl menu::action::MenuAction for MenuAction {
 }
 
 /// The context page to display in the context drawer.
-#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, Default, Eq, PartialEq)]
 pub enum ContextPage {
+    #[default]
     About,
     Settings,
     Help,

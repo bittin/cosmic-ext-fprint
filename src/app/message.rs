@@ -16,8 +16,6 @@ use std::sync::Arc;
 use tracing::info;
 use zbus;
 
-pub const REPOSITORY: &str = env!("CARGO_PKG_REPOSITORY");
-
 /// Messages emitted by the application and its widgets.
 #[derive(Debug, Clone)]
 pub struct DeviceOption {
@@ -27,7 +25,6 @@ pub struct DeviceOption {
 
 #[derive(Debug, Clone)]
 pub enum Message {
-    OpenRepositoryUrl,
     ToggleContextPage(ContextPage),
     UpdateConfig(Config),
     LaunchUrl(String),
@@ -105,14 +102,6 @@ impl AppModel {
             }
         }
         self.busy = false;
-        Task::none()
-    }
-
-    /// Opens in a browser clicked hyperlink
-    ///
-    /// **Returns** ***Task***()
-    pub(crate) fn on_clicked_link(&mut self) -> Task<cosmic::Action<Message>> {
-        let _ = open::that_detached(REPOSITORY);
         Task::none()
     }
 

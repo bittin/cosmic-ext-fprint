@@ -14,12 +14,13 @@ about = About
 settings = Settings
 # View menu item for opening Help section.
 help = Help
+# Elements in About context drawer
+repository = Repository
+support = Support
 # Menu in the header that contains About, Settings & Help sections.
 view = View
-# Welcome message
+# About section comment
 welcome = Register and/or delete fingerprints
-# In About section there is a link to the git commit of the current build and when it was build.
-git-description = Git commit { $hash } on { $date }
 # Text displayed on a button that registers a fingerprint.
 register = Register
 # Text displayed on a button that verifies a fingerprint.
@@ -51,10 +52,8 @@ device-cleared = Device cleared for all known users.
 # Dialog message that confirms you really wanted deletion of all prints.
 clear-device-confirm = Are you sure you want to clear fingerprints for ALL known users?
 
-## Licensing, Settings and Help related content. Some links are still English only content.
+## Settings and Help related content. Some links are still English only content.
 
-# Section that contains link to licensing information of it and all its dependencies.
-about-licenses = License information
 # Tells user that fprintd is needed (in Flathub it is not possible to mandate this) and has a link to fprintd webpage.
 help-fprintd = If you have any issues please first check you have fprintd correctly installed. You can find more information from their website:
 # Additional information about how to possibly get more, especially Validity, scanners working using open-fprintd.
