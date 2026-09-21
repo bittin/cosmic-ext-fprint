@@ -22,7 +22,6 @@ use cosmic::{
 };
 
 use super::AppModel;
-use std::collections::HashMap;
 
 /// Turns AppModel to a COSMIC application
 impl cosmic::Application for AppModel {
@@ -61,7 +60,7 @@ impl cosmic::Application for AppModel {
             core,
             context_page: ContextPage::About,
             nav: nav_bar::Model::default(),
-            key_binds: HashMap::new(),
+            key_binds: super::default_key_binds(),
             config,
             config_handler,
             status: fl!("status-connecting"),
@@ -106,23 +105,11 @@ impl cosmic::Application for AppModel {
             menu::items(
                 &self.key_binds,
                 vec![
-                    menu::Item::Button(
-                        fl!("menu-help"),
-                        None,
-                        MenuAction::Help,
-                    ),
+                    menu::Item::Button(fl!("menu-help"), None, MenuAction::Help),
                     menu::Item::Divider,
-                    menu::Item::Button(
-                        fl!("menu-settings"),
-                        None,
-                        MenuAction::Settings,
-                    ),
+                    menu::Item::Button(fl!("menu-settings"), None, MenuAction::Settings),
                     menu::Item::Divider,
-                    menu::Item::Button(
-                        fl!("menu-about"),
-                        None,
-                        MenuAction::About,
-                    ),
+                    menu::Item::Button(fl!("menu-about"), None, MenuAction::About),
                 ],
             ),
         )])
