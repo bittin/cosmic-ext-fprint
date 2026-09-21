@@ -104,6 +104,37 @@ impl menu::action::MenuAction for MenuAction {
     }
 }
 
+/// Returns the default key bindings for the application's menu bar.
+pub fn default_key_binds() -> HashMap<menu::KeyBind, MenuAction> {
+    use cosmic::iced::keyboard::Key;
+    use cosmic::iced::keyboard::key::Named;
+    use cosmic::widget::menu::key_bind::{KeyBind, Modifier};
+
+    let mut key_binds = HashMap::new();
+    key_binds.insert(
+        KeyBind {
+            modifiers: vec![],
+            key: Key::Named(Named::F1),
+        },
+        MenuAction::Help,
+    );
+    key_binds.insert(
+        KeyBind {
+            modifiers: vec![Modifier::Ctrl],
+            key: Key::Character(",".into()),
+        },
+        MenuAction::Settings,
+    );
+    key_binds.insert(
+        KeyBind {
+            modifiers: vec![Modifier::Ctrl],
+            key: Key::Character("i".into()),
+        },
+        MenuAction::About,
+    );
+    key_binds
+}
+
 /// The context page to display in the context drawer.
 #[derive(Copy, Clone, Debug, Default, Eq, PartialEq)]
 pub enum ContextPage {

@@ -8,11 +8,15 @@
 
 # Header message.
 app-title = Enroll
-# View menu item for opening About section.
+# Menu item for opening a section.
+menu-about = About Enroll...
+menu-help = Help...
+menu-settings = Settings...
+# Header for About section.
 about = About
-# View menu item for opening Settings section.
+# Header for Settings section.
 settings = Settings
-# View menu item for opening Help section.
+# Header for Help section.
 help = Help
 # Elements in About context drawer
 repository = Repository
