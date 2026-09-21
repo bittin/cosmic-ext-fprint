@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Make Menu wider, display shortcuts & remove icons @KodeBarista
+### Fixed
+
+- About refactored to use libcosmic widget @KodeBarista
 
 ## [1.2.7](https://github.com/cosmic-utils/enroll/releases/tag/v1.2.7) - 2026-09-18
 

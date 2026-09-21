@@ -19,6 +19,7 @@ use cosmic::{
         menu::{ItemHeight, ItemWidth},
         nav_bar,
     },
+    widget::{self, about::About, dialog, icon, menu, nav_bar},
 };
 
 use super::AppModel;
@@ -56,9 +57,27 @@ impl cosmic::Application for AppModel {
         // Start with navigation closed
         core.nav_bar_toggle();
 
+        let about = About::default()
+            .name(fl!("app-title"))
+            .icon(icon::from_name(Self::APP_ID))
+            .version(env!("CARGO_PKG_VERSION"))
+            .author("Joonas Tuomi")
+            .comments(fl!("welcome"))
+            .license(env!("CARGO_PKG_LICENSE"))
+            .license_url("https://spdx.org/licenses/MPL-2.0")
+            .developers([("Joonas Tuomi", "github@joonastuomi.fi")])
+            .links([
+                (fl!("repository"), "https://github.com/cosmic-utils/enroll"),
+                (
+                    fl!("support"),
+                    "https://github.com/cosmic-utils/enroll/issues",
+                ),
+            ]);
+
         let mut app = AppModel {
             core,
-            context_page: ContextPage::About,
+            context_page: ContextPage::default(),
+            about,
             nav: nav_bar::Model::default(),
             key_binds: super::default_key_binds(),
             config,
@@ -136,11 +155,11 @@ impl cosmic::Application for AppModel {
         }
 
         Some(match self.context_page {
-            ContextPage::About => context_drawer::context_drawer(
-                self.about(),
+            ContextPage::About => context_drawer::about(
+                &self.about,
+                |url| Message::LaunchUrl(url.to_string()),
                 Message::ToggleContextPage(ContextPage::About),
-            )
-            .title(fl!("about")),
+            ),
             ContextPage::Settings => context_drawer::context_drawer(
                 self.settings(),
                 Message::ToggleContextPage(ContextPage::Settings),
@@ -303,7 +322,6 @@ impl cosmic::Application for AppModel {
             Message::CloseApplication => self.on_close(),
             Message::Register => self.on_register(),
             Message::Cancel => self.on_cancel(),
-            Message::OpenRepositoryUrl => self.on_clicked_link(),
             Message::ToggleContextPage(context_page) => self.on_context_page_toggle(context_page),
             Message::UpdateConfig(config) => self.on_update_config(config),
             Message::LaunchUrl(url) => self.on_open_link(url),
