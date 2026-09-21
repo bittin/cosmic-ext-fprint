@@ -19,6 +19,8 @@ repository = Repository
 support = Support
 # Menu in the header that contains About, Settings & Help sections.
 view = View
+# About section comment
+welcome = Register and/or delete fingerprints
 # Text displayed on a button that registers a fingerprint.
 register = Register
 # Text displayed on a button that verifies a fingerprint.
@@ -50,7 +52,7 @@ device-cleared = Device cleared for all known users.
 # Dialog message that confirms you really wanted deletion of all prints.
 clear-device-confirm = Are you sure you want to clear fingerprints for ALL known users?
 
-## Licensing, Settings and Help related content. Some links are still English only content.
+## Settings and Help related content. Some links are still English only content.
 
 # Tells user that fprintd is needed (in Flathub it is not possible to mandate this) and has a link to fprintd webpage.
 help-fprintd = If you have any issues please first check you have fprintd correctly installed. You can find more information from their website:

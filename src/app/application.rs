@@ -57,6 +57,7 @@ impl cosmic::Application for AppModel {
             .icon(icon::from_name(Self::APP_ID))
             .version(env!("CARGO_PKG_VERSION"))
             .author("Joonas Tuomi")
+            .comments(fl!("welcome"))
             .license(env!("CARGO_PKG_LICENSE"))
             .license_url("https://spdx.org/licenses/MPL-2.0")
             .developers([("Joonas Tuomi", "github@joonastuomi.fi")])
@@ -328,7 +329,6 @@ impl cosmic::Application for AppModel {
             Message::CloseApplication => self.on_close(),
             Message::Register => self.on_register(),
             Message::Cancel => self.on_cancel(),
-            Message::OpenRepositoryUrl => self.on_clicked_link(),
             Message::ToggleContextPage(context_page) => self.on_context_page_toggle(context_page),
             Message::UpdateConfig(config) => self.on_update_config(config),
             Message::LaunchUrl(url) => self.on_open_link(url),
