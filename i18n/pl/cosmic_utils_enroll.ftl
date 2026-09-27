@@ -22,15 +22,16 @@ clear-device-confirm = Na pewno chcesz usunąć wszystkie odciski palców wszyst
 help-fprintd = Jeśli masz problemy, sprawdź najpierw czy masz poprawnie zainstalowane fprintd. Więcej informacji znajdziesz na ich stronie domowej:
 help-validity = Dla niektórych sprzętów, jak na przykład Validity scanners, powinno się zainstalować zamiast tego open-fprintd.
 help-pam = Ponadto by używać czytnika lini papilarnych efektywnie, PAM musi być skonfigurowane by używać moduł fprintd do uwierzytelnienia. Przykłady możesz znaleźć tutaj:
-settings-ui = Interfejs Użytkownika
+settings-ui = Wygląd
 alternative-ui = Alternatywne UI
 settings-clear-device = Usuń wszystkie odciski palców
 settings-theme = Motyw
 settings-device =
     { $nbr ->
-        [1] Masz { $nbr } wspierane urządzenie
-        [few] Masz { $nbr } wspierane urządzenia
-       *[other] Masz { $nbr } wspieranych urządzeń
+        [0] Brak urządzeń
+        [1] { $nbr } urządzenie
+        [few] { $nbr } urządzenia
+       *[other] { $nbr }urządzeń
     }
 theme-system = Systemowy
 theme-light = Jasny
@@ -94,3 +95,7 @@ error-unsupported-operation = Ta operacja nie jest wspierana przez usługę odci
 menu-about = O aplikacji Enroll...
 menu-help = Pomoc...
 menu-settings = Ustawienia...
+repository = Repozytorium
+support = Wsparcie
+settings-section-devices = Urządzenia
+settings-supported = Wspierane
