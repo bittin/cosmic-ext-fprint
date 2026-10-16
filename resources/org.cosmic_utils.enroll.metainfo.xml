@@ -158,6 +158,18 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.2.10" date="2026-10-16">
+      <description>
+        <p>
+          Changes:
+        </p>
+        <ul>
+          <li>Added Spanish translation by @PGSCOM</li>
+          <li>Switch to Theme from config on startup</li>
+          <li>Synchronize Settings button to it as well</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.9" date="2026-10-13">
       <description>
         <p>
