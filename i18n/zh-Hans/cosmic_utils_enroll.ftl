@@ -1,6 +1,5 @@
 app-title = Enroll 指纹
 app-comment = 指纹记录管理
-app-keywords =
 about = 关于
 settings = 设置
 help = 帮助

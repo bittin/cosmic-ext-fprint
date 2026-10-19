@@ -1,6 +1,5 @@
 app-title = Відбитки пальців
 app-comment = Управління записами відбитків пальців
-app-keywords =
 about = Про застосунок
 settings = Налаштування
 view = Вид

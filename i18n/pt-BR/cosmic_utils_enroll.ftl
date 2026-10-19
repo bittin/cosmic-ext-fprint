@@ -1,6 +1,5 @@
 app-title = Enroll
 app-comment = Gestão de registros de impressões digitais
-app-keywords =
 about = Sobre
 settings = Configurações
 help = Ajuda
