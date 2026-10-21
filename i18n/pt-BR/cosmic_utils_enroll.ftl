@@ -99,3 +99,4 @@ repository = Repositório
 support = Suporte
 settings-section-devices = Dispositivos
 settings-supported = Compatível
+app-keywords = Impressão;digital;Autenticação;Biometria;
