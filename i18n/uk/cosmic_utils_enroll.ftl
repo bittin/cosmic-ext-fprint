@@ -100,3 +100,4 @@ repository = Сховище
 support = Підтримка
 settings-supported = Підтримувані
 settings-section-devices = Пристрої
+app-keywords = Відбиток;Автентифікація;Біометрика;Fingerprint;Authentication;Biometrics;
